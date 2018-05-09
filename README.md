@@ -1,4 +1,4 @@
 # Change background-color using cookies
-My first repository !
+First repository !
 
 :heart::heart::heart:
