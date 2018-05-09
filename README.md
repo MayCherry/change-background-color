@@ -1,4 +1,4 @@
 # hello
 My first repository !
 
-I love :coffee: :pizza: and :man:.
+I love :coffee: :pizza: and :heart:.
