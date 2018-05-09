@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+    <title>Theme cookies</title>
+    <script>
+            function setColor() {
+                var d = new Date();
+                d.setTime(d.getTime() + (24*60* 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+        
+                var colors=document.getElementById("color");
+                var selectedColor=colors.options[colors.selectedIndex].value;
+                
+                document.cookie = "color="+selectedColor+";" + expires + "path=/"; 
+                document.body.style.backgroundColor=selectedColor;   
+            }
+            function getColor() {
+                var decodedCookie = decodeURIComponent(document.cookie);
+                var ca = decodedCookie.split(';'); 
+                var keyName="color="
+                var colorCookies="";                             
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);                       
+                    }
+                    if (c.indexOf(keyName) == 0) {                       
+                        colorValue=c.substring(keyName.length, c.length);
+                        document.body.style.backgroundColor=colorValue; 
+                    }                   
+                }                                                                         
+            }
+   </script>
+</head>
+<body onload="getColor()">
+    Choose Color
+    <select id="color">
+        <option value="black">Black</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="yellow">Yellow</option>
+    </select>
+    <button onclick="setColor()">Create Theme</button>      
+</body>
+
+
+</html>
